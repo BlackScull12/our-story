@@ -5,6 +5,7 @@
   <title>Our Story</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
 
   <style>
@@ -20,6 +21,7 @@
       max-width: 700px;
       margin: auto;
       padding: 60px 20px;
+      animation: fadeIn 2s ease;
     }
 
     h1, h2 {
@@ -28,7 +30,6 @@
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 10px;
     }
 
     h2 {
@@ -45,10 +46,49 @@
       font-size: 1.6rem;
       margin: 40px 0;
     }
+
+    .countdown {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #b85c5c;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background-color: #ffb6c1;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff9aaa;
+    }
+
+    .surprise {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #b85c5c;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- 🎵 BACKGROUND MUSIC -->
+  <!-- CHANGE THE mp3 LINK BELOW -->
+  <audio autoplay loop>
+    <source src="YOUR_MUSIC_LINK_HERE.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="container">
     <h1>Our Story</h1>
     <p><em>You, me, and everything in between 💫</em></p>
@@ -85,13 +125,44 @@
 
     <div class="heart">🎂</div>
 
-    <h2>Happy Birthday, My Love</h2>
+    <!-- ✨ CHANGE HER NAME HERE -->
+    <h2>Happy Birthday, <span id="AYSHANI">My Love</span></h2>
+
     <p>
       This little website is just a reminder—<br>
       you mean more to me than words ever could.
     </p>
 
-    <p><strong>Always yours ❤️</strong></p>
+    <!-- ⏳ COUNTDOWN -->
+    <div class="countdown" id="countdown"></div>
+
+    <!-- 💝 SURPRISE BUTTON -->
+    <button onclick="showSurprise()">Click me 💝</button>
+    <div class="surprise" id="surprise">
+      I would never give upon u.❤️
+    </div>
+
+    <p style="margin-top:40px;"><strong>Always yours ❤️</strong></p>
   </div>
+
+  <script>
+    // 🎂 COUNTDOWN TO 26 FEB
+    const birthday = new Date("February 26, 2026 00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = birthday - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("countdown").innerHTML =
+        days > 0 ? `Only ${days} days until your birthday 🎉` : `It's your birthday today 🎂❤️`;
+    }, 1000);
+
+    // 💝 SURPRISE
+    function showSurprise() {
+      document.getElementById("surprise").style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
