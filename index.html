@@ -78,6 +78,37 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* 🎈 BALLOONS */
+.balloon {
+  position: fixed;
+  bottom: -150px;
+  width: 40px;
+  height: 55px;
+  background: #ffb6c1;
+  border-radius: 50% 50% 45% 45%;
+  animation: floatUp linear infinite;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 35px;
+  background: #aaa;
+  left: 50%;
+  top: 55px;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
   </style>
 </head>
 
@@ -168,6 +199,29 @@
       document.getElementById("surprise").style.display = "block";
     }
   </script>
+  <script>
+  function createBalloon() {
+    const balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+
+    // Random position, color, size, speed
+    const colors = ["#ffb6c1", "#ffd1dc", "#c1e1c1", "#cce7ff", "#e6ccff"];
+    balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+    balloon.style.left = Math.random() * 100 + "vw";
+    balloon.style.animationDuration = 6 + Math.random() * 6 + "s";
+    balloon.style.transform = `scale(${0.8 + Math.random() * 0.6})`;
+
+    document.body.appendChild(balloon);
+
+    // Remove balloon after animation
+    setTimeout(() => {
+      balloon.remove();
+    }, 12000);
+  }
+
+  // Create balloons repeatedly
+  setInterval(createBalloon, 800);
+</script>
 
 </body>
 </html>
