@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #ffffff, #fbeaea);
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 60px 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 60px;
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #ffb6c1;
+      transform: translateX(-50%);
+    }
+
+    .event {
+      position: relative;
+      width: 45%;
+      padding: 20px;
+      margin: 30px 0;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .event.left {
+      left: 0;
+    }
+
+    .event.right {
+      left: 55%;
+    }
+
+    .event::before {
+      content: "❤️";
+      position: absolute;
+      top: 20px;
+      right: -30px;
+      font-size: 1.2rem;
+    }
+
+    .event.right::before {
+      left: -30px;
+      right: auto;
+    }
+
+    .date {
+      font-weight: bold;
+      color: #b85c5c;
+      margin-bottom: 8px;
+    }
+
+    .back {
+      margin-top: 60px;
+      display: inline-block;
+      text-decoration: none;
+      color: #b85c5c;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 10px;
+      }
+      .event {
+        width: 100%;
+        left: 30px !important;
+      }
+      .event::before {
+        left: -30px;
+        right: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Our Timeline 💕</h1>
+    <p>Every moment that led us here</p>
+
+    <div class="timeline">
+
+      <!-- ✨ ADD / EDIT EVENTS BELOW -->
+
+      <div class="event left">
+        <div class="date">The Day We Met</div>
+        <p>The moment that changed everything.</p>
+      </div>
+
+      <div class="event right">
+        <div class="date">First Real Conversation</div>
+        <p>When hours felt like minutes.</p>
+      </div>
+
+      <div class="event left">
+        <div class="date">First Laugh Together</div>
+        <p>I knew something special was starting.</p>
+      </div>
+
+      <div class="event right">
+        <div class="date">We Became Us ❤️</div>
+        <p>The beginning of our forever.</p>
+      </div>
+
+    </div>
+
+    <a class="back" href="index.html">← Back to Our Story</a>
+  </div>
+</body>
+</html>
