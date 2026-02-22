@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Letter for You 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #fff, #fdecec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 30px;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+    }
+
+    .locked {
+      font-size: 1.2rem;
+      color: #b85c5c;
+    }
+
+    .letter {
+      display: none;
+      text-align: left;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: #333;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <div id="lockedMessage" class="locked">
+    <h1>💌 A Letter for You</h1>
+    <p>This letter isn’t ready yet.</p>
+    <p>Come back on your birthday 💕</p>
+    <p>— 26th February</p>
+  </div>
+
+  <div id="letter" class="letter">
+    <h1>My Love,</h1>
+
+    <p>
+      I don’t know when this became more than just us talking,
+      but somewhere between the laughs, the silences, and the way
+      you made everything feel lighter… you became home to me.
+    </p>
+
+    <p>
+      You make ordinary moments feel special, and difficult days
+      feel easier just by being you. Loving you feels natural —
+      like something my heart always knew how to do.
+    </p>
+
+    <p>
+      On your birthday, I just want you to know this:
+      I choose you. Today, tomorrow, and in all the little moments
+      in between.
+    </p>
+
+    <p>
+      Happy Birthday 💖  
+      I’m so grateful that it’s you.
+    </p>
+
+    <div class="signature">
+      — Yours, Always
+    </div>
+  </div>
+</div>
+
+<script>
+  const today = new Date();
+  const birthday = new Date(today.getFullYear(), 1, 26); // Feb = 1
+
+  const locked = document.getElementById("lockedMessage");
+  const letter = document.getElementById("letter");
+
+  if (today >= birthday) {
+    locked.style.display = "none";
+    letter.style.display = "block";
+  }
+</script>
+
+</body>
+</html>
