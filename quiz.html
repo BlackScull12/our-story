@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Quiz 🎂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #fff, #fdeaea);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      max-width: 600px;
+      padding: 40px 30px;
+      border-radius: 18px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 10px;
+    }
+
+    .question {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      text-align: left;
+    }
+
+    .options {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #ff9aa2;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff7b86;
+    }
+
+    .result {
+      display: none;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card" id="quizCard">
+  <h1>Birthday Quiz 🎂</h1>
+  <p>Let’s see how well you know us 💕</p>
+
+  <div class="question">
+    1. When did we have our first date?
+    <div class="options">
+      <label><input type="radio" name="q1"> 14 June</label>
+      <label><input type="radio" name="q1" data-correct> 03 August</label>
+      <label><input type="radio" name="q1"> 30 September</label>
+    </div>
+  </div>
+
+  <div class="question">
+    2. What do I love the most about you?
+    <div class="options">
+      <label><input type="radio" name="q2"> Your smile</label>
+      <label><input type="radio" name="q2"> Your heart</label>
+      <label><input type="radio" name="q2" data-correct> All of you</label>
+    </div>
+  </div>
+
+  <div class="question">
+    3. What are we building together?
+    <div class="options">
+      <label><input type="radio" name="q3"> Memories</label>
+      <label><input type="radio" name="q3"> A future</label>
+      <label><input type="radio" name="q3" data-correct> Forever ❤️</label>
+    </div>
+  </div>
+
+  <button onclick="submitQuiz()">Finish Quiz 💖</button>
+</div>
+
+<div class="card result" id="resultCard">
+  <h1>💖 Happy Birthday 💖</h1>
+  <p id="scoreText"></p>
+  <p>
+    No matter the score —  
+    you’re my favorite person, my safe place,  
+    and my best decision.
+  </p>
+  <p>
+    I’m so grateful it’s you.  
+    Today and always.
+  </p>
+</div>
+
+<script>
+  function submitQuiz() {
+    let correct = 0;
+    const answers = document.querySelectorAll('input[data-correct]');
+
+    answers.forEach(answer => {
+      if (answer.checked) correct++;
+    });
+
+    document.getElementById("quizCard").style.display = "none";
+    document.getElementById("resultCard").style.display = "block";
+
+    document.getElementById("scoreText").innerText =
+      `You got ${correct} / 3 right 🥰`;
+  }
+</script>
+
+</body>
+</html>
