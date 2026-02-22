@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>A Gift for You 🌸</title>
+  <title>A Gift for You 🎰💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
@@ -26,47 +26,40 @@
       margin-bottom: 30px;
     }
 
-    .bouquet {
+    .slot-machine {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      max-width: 600px;
-      margin: auto;
+      margin: 40px auto;
     }
 
-    .flower {
+    .reel {
       width: 90px;
       height: 90px;
-      border-radius: 50%;
-      font-size: 2.2rem;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+      font-size: 2.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-      transition: transform 0.3s;
-      user-select: none;
-    }
-
-    .flower:hover {
-      transform: scale(1.1);
-    }
-
-    .rose {
-      background: #ffb6c1;
-    }
-
-    .lily {
-      background: #ffffff;
-      border: 2px solid #ddd;
-    }
-
-    .letter {
-      display: none;
-      font-size: 2rem;
-      font-weight: bold;
       color: #b85c5c;
+      font-weight: bold;
+    }
+
+    button {
+      background: #ffb6c1;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
     }
 
     .final {
@@ -76,54 +69,73 @@
       color: #b85c5c;
       display: none;
     }
+
+    .spin {
+      animation: spin 0.3s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(5px); }
+    }
   </style>
 </head>
 
 <body>
 
-<h1>For You 🌸</h1>
-<p>Tap each flower 💕</p>
+<h1>Try Your Luck 🎰</h1>
+<p>Spin the slot machine 💕</p>
 
-<div class="bouquet" id="bouquet">
-  <!-- Letters spell: I LOVE YOU AYSHANI -->
-  <div class="flower rose" data-letter="I">🌹</div>
-  <div class="flower lily" data-letter="L">🌸</div>
-  <div class="flower rose" data-letter="O">🌹</div>
-  <div class="flower lily" data-letter="V">🌸</div>
-  <div class="flower rose" data-letter="E">🌹</div>
-
-  <div class="flower lily" data-letter="Y">🌸</div>
-  <div class="flower rose" data-letter="O">🌹</div>
-  <div class="flower lily" data-letter="U">🌸</div>
-
-  <div class="flower rose" data-letter="A">🌹</div>
-  <div class="flower lily" data-letter="Y">🌸</div>
-  <div class="flower rose" data-letter="S">🌹</div>
-  <div class="flower lily" data-letter="H">🌸</div>
-  <div class="flower rose" data-letter="A">🌹</div>
-  <div class="flower lily" data-letter="N">🌸</div>
-  <div class="flower rose" data-letter="I">🌹</div>
+<div class="slot-machine">
+  <div class="reel" id="reel1">?</div>
+  <div class="reel" id="reel2">?</div>
+  <div class="reel" id="reel3">?</div>
 </div>
 
+<button onclick="spin()">SPIN 💖</button>
+
 <div class="final" id="finalMessage">
-  I LOVE YOU AYSHANI 💖
+  I LOVE YOU AYSHANI 💕
 </div>
 
 <script>
-  let collected = "";
+  const message = "ILOVEYOUAYSHANI".split("");
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  let index = 0;
 
-  document.querySelectorAll(".flower").forEach(flower => {
-    flower.addEventListener("click", () => {
-      if (flower.innerHTML !== flower.dataset.letter) {
-        flower.innerHTML = flower.dataset.letter;
-        collected += flower.dataset.letter;
+  function randomLetter() {
+    return alphabet[Math.floor(Math.random() * alphabet.length)];
+  }
+
+  function spin() {
+    const reels = [
+      document.getElementById("reel1"),
+      document.getElementById("reel2"),
+      document.getElementById("reel3")
+    ];
+
+    reels.forEach(reel => {
+      reel.classList.add("spin");
+      reel.textContent = randomLetter();
+    });
+
+    setTimeout(() => {
+      reels.forEach(reel => reel.classList.remove("spin"));
+
+      if (index < message.length) {
+        for (let i = 0; i < 3; i++) {
+          if (index < message.length) {
+            reels[i].textContent = message[index];
+            index++;
+          }
+        }
       }
 
-      if (collected.replace(/ /g, "").length >= 15) {
+      if (index >= message.length) {
         document.getElementById("finalMessage").style.display = "block";
       }
-    });
-  });
+    }, 600);
+  }
 </script>
 
 </body>
