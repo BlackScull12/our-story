@@ -182,6 +182,13 @@
 </div>
 
 <!-- 🌸 MAIN WEBSITE CONTENT -->
+  <div id="visitCounter" style="
+  margin-top: 30px;
+  font-size: 0.95rem;
+  color: #b85c5c;
+  opacity: 0.8;
+">
+</div>
 <div id="mainContent" style="display:none;">
   
   <div class="left-links">
@@ -254,6 +261,21 @@
   </div>
 
   <script>
+    <script>
+  // 💗 Visit Counter (per device)
+  let visits = localStorage.getItem("loveVisits");
+
+  if (!visits) {
+    visits = 1;
+  } else {
+    visits = parseInt(visits) + 1;
+  }
+
+  localStorage.setItem("loveVisits", visits);
+
+  document.getElementById("visitCounter").innerHTML =
+    `You’ve visited this page <strong>${visits}</strong> time${visits > 1 ? "s" : ""} 💕`;
+</script>
     // 🎂 COUNTDOWN TO 26 FEB
     const birthday = new Date("February 26, 2026 00:00:00").getTime();
 
