@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Gift for You 🌸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #fdeaea, #ffffff);
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #b85c5c;
+      margin-bottom: 30px;
+    }
+
+    .bouquet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .flower {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+      user-select: none;
+    }
+
+    .flower:hover {
+      transform: scale(1.1);
+    }
+
+    .rose {
+      background: #ffb6c1;
+    }
+
+    .lily {
+      background: #ffffff;
+      border: 2px solid #ddd;
+    }
+
+    .letter {
+      display: none;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b85c5c;
+    }
+
+    .final {
+      margin-top: 40px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b85c5c;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>For You 🌸</h1>
+<p>Tap each flower 💕</p>
+
+<div class="bouquet" id="bouquet">
+  <!-- Letters spell: I LOVE YOU AYSHANI -->
+  <div class="flower rose" data-letter="I">🌹</div>
+  <div class="flower lily" data-letter="L">🌸</div>
+  <div class="flower rose" data-letter="O">🌹</div>
+  <div class="flower lily" data-letter="V">🌸</div>
+  <div class="flower rose" data-letter="E">🌹</div>
+
+  <div class="flower lily" data-letter="Y">🌸</div>
+  <div class="flower rose" data-letter="O">🌹</div>
+  <div class="flower lily" data-letter="U">🌸</div>
+
+  <div class="flower rose" data-letter="A">🌹</div>
+  <div class="flower lily" data-letter="Y">🌸</div>
+  <div class="flower rose" data-letter="S">🌹</div>
+  <div class="flower lily" data-letter="H">🌸</div>
+  <div class="flower rose" data-letter="A">🌹</div>
+  <div class="flower lily" data-letter="N">🌸</div>
+  <div class="flower rose" data-letter="I">🌹</div>
+</div>
+
+<div class="final" id="finalMessage">
+  I LOVE YOU AYSHANI 💖
+</div>
+
+<script>
+  let collected = "";
+
+  document.querySelectorAll(".flower").forEach(flower => {
+    flower.addEventListener("click", () => {
+      if (flower.innerHTML !== flower.dataset.letter) {
+        flower.innerHTML = flower.dataset.letter;
+        collected += flower.dataset.letter;
+      }
+
+      if (collected.replace(/ /g, "").length >= 15) {
+        document.getElementById("finalMessage").style.display = "block";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
