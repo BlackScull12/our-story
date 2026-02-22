@@ -9,6 +9,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
 
   <style>
+
+    .gift-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffb6c1;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: float 3s ease-in-out infinite;
+  z-index: 10000;
+}
+
+.gift-btn:hover {
+  background: #ff9aaa;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+    
     .left-links {
   text-align: left;
   margin-bottom: 20px;
@@ -129,6 +154,7 @@
 </head>
 
 <body>
+  <a href="gift.html" class="gift-btn">🎁 Gift for my baby</a>
 
 <!-- 🔐 PASSWORD SCREEN -->
 <div id="lockScreen" style="
