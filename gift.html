@@ -8,6 +8,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
 
   <style>
+    .alphabet {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 8px;
+}
+
+.alphabet span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eee;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.alphabet span.won {
+  background: #ffb6c1;
+  color: #b85c5c;
+  transform: scale(1.1);
+}
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -95,6 +125,7 @@
 <button onclick="spin()">SPIN 💖</button>
 
 <div class="final" id="finalMessage">
+  <div class="alphabet" id="alphabet"></div>
   I LOVE YOU AYSHANI 💕
 </div>
 
@@ -103,8 +134,23 @@
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   let index = 0;
 
+  const alphabetContainer = document.getElementById("alphabet");
+
+  // Create A–Z display
+  alphabet.forEach(letter => {
+    const span = document.createElement("span");
+    span.textContent = letter;
+    span.id = `alpha-${letter}`;
+    alphabetContainer.appendChild(span);
+  });
+
   function randomLetter() {
     return alphabet[Math.floor(Math.random() * alphabet.length)];
+  }
+
+  function markWon(letter) {
+    const el = document.getElementById(`alpha-${letter}`);
+    if (el) el.classList.add("won");
   }
 
   function spin() {
@@ -125,7 +171,9 @@
       if (index < message.length) {
         for (let i = 0; i < 3; i++) {
           if (index < message.length) {
-            reels[i].textContent = message[index];
+            const letter = message[index];
+            reels[i].textContent = letter;
+            markWon(letter);
             index++;
           }
         }
