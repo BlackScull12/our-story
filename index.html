@@ -13,11 +13,11 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(180deg, #fbeaea, #ffffff);
-      color: #333;
       text-align: center;
+      color: #333;
     }
 
-    /* 🎁 GIFT BUTTON */
+    /* 🎁 Gift Button */
     .gift-btn {
       position: fixed;
       top: 20px;
@@ -33,16 +33,14 @@
       z-index: 10000;
     }
 
-    .gift-btn:hover {
-      background: #ff9aaa;
-    }
-
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
 
-    /* LEFT LINKS */
+    .gift-btn:hover { background:#ff9aaa; }
+
+    /* Left Links */
     .left-links {
       text-align: left;
       margin-bottom: 30px;
@@ -56,9 +54,7 @@
       text-decoration: none;
     }
 
-    .left-links a:hover {
-      text-decoration: underline;
-    }
+    .left-links a:hover { text-decoration: underline; }
 
     .container {
       max-width: 700px;
@@ -67,48 +63,26 @@
       animation: fadeIn 2s ease;
     }
 
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-    }
+    h1, h2 { font-family: 'Playfair Display', serif; }
+    h1 { font-size: 3rem; }
+    h2 { margin-top: 50px; }
 
-    h1 {
-      font-size: 3rem;
-    }
+    p { font-size: 1.1rem; line-height: 1.8; }
 
-    h2 {
-      margin-top: 50px;
-      font-size: 1.8rem;
-    }
+    .heart { font-size: 1.6rem; margin: 40px 0; }
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .heart {
-      font-size: 1.6rem;
-      margin: 40px 0;
-    }
-
-    .countdown {
-      font-size: 1.2rem;
-      margin-top: 20px;
-      color: #b85c5c;
-    }
+    .countdown { color:#b85c5c; margin-top:20px; }
 
     button {
       margin-top: 30px;
       padding: 12px 24px;
-      font-size: 1rem;
-      border: none;
       border-radius: 25px;
-      background-color: #ffb6c1;
+      border: none;
+      background:#ffb6c1;
       cursor: pointer;
     }
 
-    button:hover {
-      background-color: #ff9aaa;
-    }
+    button:hover { background:#ff9aaa; }
 
     .surprise {
       display: none;
@@ -118,11 +92,11 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
     }
 
-    /* 🎈 BALLOONS */
+    /* 🎈 Balloons */
     .balloon {
       position: fixed;
       bottom: -150px;
@@ -131,22 +105,20 @@
       background: #ffb6c1;
       border-radius: 50% 50% 45% 45%;
       animation: floatUp linear infinite;
-      z-index: 0;
       opacity: 0.9;
     }
 
     .balloon::after {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 35px;
-      background: #aaa;
-      left: 50%;
-      top: 55px;
+      content:"";
+      position:absolute;
+      width:2px;
+      height:35px;
+      background:#aaa;
+      left:50%;
+      top:55px;
     }
 
     @keyframes floatUp {
-      from { transform: translateY(0); }
       to { transform: translateY(-120vh); }
     }
   </style>
@@ -156,29 +128,20 @@
 
 <a href="gift.html" class="gift-btn">🎁 Gift for my baby</a>
 
-<!-- 🔐 PASSWORD SCREEN -->
-<div id="lockScreen" style="
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(180deg, #fbeaea, #ffffff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-">
-  <div style="text-align:center;max-width:300px;">
+<!-- 🔐 Password Screen -->
+<div id="lockScreen" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#fbeaea;z-index:9999;">
+  <div>
     <h2>Enter the password 💖</h2>
-    <input id="passwordInput" type="password" placeholder="Password"
-      style="padding:10px;width:100%;margin-top:10px;border-radius:20px;border:1px solid #ccc;">
+    <input id="passwordInput" type="password" placeholder="Password" style="padding:10px;border-radius:20px;">
+    <br>
     <button onclick="checkPassword()">Open 🎈</button>
-    <p id="error" style="color:#b85c5c;display:none;">Wrong password 💔</p>
+    <p id="error" style="display:none;color:#b85c5c;">Wrong password 💔</p>
   </div>
 </div>
 
-<!-- 🌸 MAIN CONTENT -->
+<!-- 🌸 Main Content -->
 <div id="mainContent" style="display:none;">
-
-  <div id="visitCounter" style="margin-top:30px;font-size:0.95rem;color:#b85c5c;opacity:0.8;"></div>
+  <div id="visitCounter" style="margin-top:20px;color:#b85c5c;"></div>
 
   <div class="left-links">
     <a href="timeline.html">See Our Timeline 💕</a>
@@ -193,13 +156,13 @@
     <div class="heart">❤️</div>
 
     <h2>How It Started</h2>
-    <p>It all began with a simple moment.<br>One smile. One conversation.</p>
+    <p>One moment. One smile. Everything changed.</p>
 
     <h2>Us</h2>
     <p>We laughed. We talked. We became home.</p>
 
     <h2>Why I Love You</h2>
-    <p>Your smile. Your heart. The way you soften my world.</p>
+    <p>Your heart. Your smile. Your soul.</p>
 
     <h2>The Future</h2>
     <p>This is only the beginning.</p>
@@ -208,19 +171,36 @@
 
     <h2>Happy Birthday, Ayshani 💕</h2>
 
-    <div class="countdown" id="countdown"></div>
+    <div id="countdown" class="countdown"></div>
 
     <button onclick="showSurprise()">Click me 💝</button>
-    <div class="surprise" id="surprise">I would never give up on you ❤️</div>
+    <div id="surprise" class="surprise">I would never give up on you ❤️</div>
 
     <p style="margin-top:40px;"><strong>Always yours ❤️</strong></p>
   </div>
 </div>
 
-<!-- 📜 SCRIPTS -->
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop>
+  <source src="music/aww.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 📜 Scripts -->
 <script>
-  // 🔐 PASSWORD
   const correctPassword = "2623";
+  const bgMusic = document.getElementById("bgMusic");
+  let musicStarted = false;
+
+  function startMusic() {
+    if (!musicStarted) {
+      bgMusic.volume = 0.5;
+      bgMusic.play().catch(()=>{});
+      musicStarted = true;
+    }
+  }
+
+  document.addEventListener("click", startMusic);
+
   function checkPassword() {
     if (passwordInput.value === correctPassword) {
       lockScreen.style.display = "none";
@@ -230,35 +210,31 @@
     }
   }
 
-  // 💗 VISIT COUNTER
   let visits = localStorage.getItem("loveVisits");
   visits = visits ? parseInt(visits) + 1 : 1;
   localStorage.setItem("loveVisits", visits);
-  visitCounter.innerHTML = `You’ve visited this page <strong>${visits}</strong> time${visits > 1 ? "s" : ""} 💕`;
+  visitCounter.innerHTML = `You’ve visited this page ${visits} time${visits>1?"s":""} 💕`;
 
-  // 🎂 COUNTDOWN
   const birthday = new Date("February 26, 2026").getTime();
-  setInterval(() => {
-    const diff = birthday - new Date().getTime();
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    countdown.innerHTML = days > 0 ? `Only ${days} days to go 🎉` : `It's your birthday 🎂`;
-  }, 1000);
+  setInterval(()=>{
+    const diff = birthday - Date.now();
+    const days = Math.floor(diff / (1000*60*60*24));
+    countdown.innerHTML = days>0 ? `Only ${days} days to go 🎉` : `It's your birthday 🎂`;
+  },1000);
 
-  // 💝 SURPRISE
   function showSurprise() {
     surprise.style.display = "block";
   }
 
-  // 🎈 BALLOONS
   function createBalloon() {
     const b = document.createElement("div");
     b.className = "balloon";
-    b.style.left = Math.random() * 100 + "vw";
-    b.style.animationDuration = 6 + Math.random() * 6 + "s";
+    b.style.left = Math.random()*100+"vw";
+    b.style.animationDuration = 6+Math.random()*6+"s";
     document.body.appendChild(b);
-    setTimeout(() => b.remove(), 12000);
+    setTimeout(()=>b.remove(),12000);
   }
-  setInterval(createBalloon, 800);
+  setInterval(createBalloon,800);
 </script>
 
 </body>
