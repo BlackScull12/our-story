@@ -9,53 +9,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
 
   <style>
-
-    .gift-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #ffb6c1;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  animation: float 3s ease-in-out infinite;
-  z-index: 10000;
-}
-
-.gift-btn:hover {
-  background: #ff9aaa;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-    
-    .left-links {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.left-links a {
-  display: block;
-  margin: 10px 0;
-  color: #b85c5c;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.left-links a:hover {
-  text-decoration: underline;
-}
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(180deg, #fbeaea, #ffffff);
       color: #333;
       text-align: center;
+    }
+
+    /* 🎁 GIFT BUTTON */
+    .gift-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffb6c1;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+      z-index: 10000;
+    }
+
+    .gift-btn:hover {
+      background: #ff9aaa;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* LEFT LINKS */
+    .left-links {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .left-links a {
+      display: block;
+      margin: 10px 0;
+      color: #b85c5c;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .left-links a:hover {
+      text-decoration: underline;
     }
 
     .container {
@@ -119,42 +121,40 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     /* 🎈 BALLOONS */
-.balloon {
-  position: fixed;
-  bottom: -150px;
-  width: 40px;
-  height: 55px;
-  background: #ffb6c1;
-  border-radius: 50% 50% 45% 45%;
-  animation: floatUp linear infinite;
-  z-index: 0;
-  opacity: 0.9;
-}
+    .balloon {
+      position: fixed;
+      bottom: -150px;
+      width: 40px;
+      height: 55px;
+      background: #ffb6c1;
+      border-radius: 50% 50% 45% 45%;
+      animation: floatUp linear infinite;
+      z-index: 0;
+      opacity: 0.9;
+    }
 
-.balloon::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 35px;
-  background: #aaa;
-  left: 50%;
-  top: 55px;
-}
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 35px;
+      background: #aaa;
+      left: 50%;
+      top: 55px;
+    }
 
-@keyframes floatUp {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-120vh);
-  }
-}
+    @keyframes floatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120vh); }
+    }
   </style>
 </head>
 
 <body>
-  <a href="gift.html" class="gift-btn">🎁 Gift for my baby</a>
+
+<a href="gift.html" class="gift-btn">🎁 Gift for my baby</a>
 
 <!-- 🔐 PASSWORD SCREEN -->
 <div id="lockScreen" style="
@@ -165,44 +165,26 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  font-family: 'Poppins', sans-serif;
 ">
   <div style="text-align:center;max-width:300px;">
-    <h2 style="font-family:'Playfair Display', serif;">Enter the password 💖</h2>
+    <h2>Enter the password 💖</h2>
     <input id="passwordInput" type="password" placeholder="Password"
       style="padding:10px;width:100%;margin-top:10px;border-radius:20px;border:1px solid #ccc;">
-    <button onclick="checkPassword()"
-      style="margin-top:15px;padding:10px 20px;border:none;border-radius:20px;background:#ffb6c1;cursor:pointer;">
-      Open 🎈
-    </button>
-    <p id="error" style="color:#b85c5c;margin-top:10px;display:none;">
-      Wrong password 💔
-    </p>
+    <button onclick="checkPassword()">Open 🎈</button>
+    <p id="error" style="color:#b85c5c;display:none;">Wrong password 💔</p>
   </div>
 </div>
 
-<!-- 🌸 MAIN WEBSITE CONTENT -->
-  <div id="visitCounter" style="
-  margin-top: 30px;
-  font-size: 0.95rem;
-  color: #b85c5c;
-  opacity: 0.8;
-">
-</div>
+<!-- 🌸 MAIN CONTENT -->
 <div id="mainContent" style="display:none;">
-  
+
+  <div id="visitCounter" style="margin-top:30px;font-size:0.95rem;color:#b85c5c;opacity:0.8;"></div>
+
   <div class="left-links">
     <a href="timeline.html">See Our Timeline 💕</a>
     <a href="letter.html">💌 A Letter Just for You</a>
     <a href="quiz.html">🎂 Birthday Quiz</a>
   </div>
-
-  <div class="event left">
-  <div class="date">  </div>
-  <p>What happened here 💫</p>
-</div>
-  
-<p style="margin-top:20px;"><strong>Always yours ❤️</strong></p>
 
   <div class="container">
     <h1>Our Story</h1>
@@ -211,125 +193,73 @@
     <div class="heart">❤️</div>
 
     <h2>How It Started</h2>
-    <p>
-      It all began with a simple moment.<br>
-      One conversation, one smile,<br>
-      and somehow everything felt different.
-    </p>
+    <p>It all began with a simple moment.<br>One smile. One conversation.</p>
 
     <h2>Us</h2>
-    <p>
-      We laughed.<br>
-      We talked for hours.<br>
-      And without realizing it,<br>
-      we became home to each other.
-    </p>
+    <p>We laughed. We talked. We became home.</p>
 
     <h2>Why I Love You</h2>
-    <p>
-      I love your smile.<br>
-      I love your heart.<br>
-      I love the way you make my world softer and brighter.
-    </p>
+    <p>Your smile. Your heart. The way you soften my world.</p>
 
     <h2>The Future</h2>
-    <p>
-      This is just the beginning.<br>
-      And I can’t wait to write the rest of our story with you.
-    </p>
+    <p>This is only the beginning.</p>
 
     <div class="heart">🎂</div>
 
-    <!-- ✨ CHANGE HER NAME HERE -->
-    <h2>Happy Birthday, <span id="AYSHANI">My Love</span></h2>
+    <h2>Happy Birthday, Ayshani 💕</h2>
 
-    <p>
-      This little website is just a reminder—<br>
-      you mean more to me than words ever could.
-    </p>
-
-    <!-- ⏳ COUNTDOWN -->
     <div class="countdown" id="countdown"></div>
 
-    <!-- 💝 SURPRISE BUTTON -->
     <button onclick="showSurprise()">Click me 💝</button>
-    <div class="surprise" id="surprise">
-      I would never give upon u.❤️
-    </div>
+    <div class="surprise" id="surprise">I would never give up on you ❤️</div>
 
     <p style="margin-top:40px;"><strong>Always yours ❤️</strong></p>
   </div>
+</div>
 
-  <script>
-    <script>
-  // 💗 Visit Counter (per device)
-  let visits = localStorage.getItem("loveVisits");
-
-  if (!visits) {
-    visits = 1;
-  } else {
-    visits = parseInt(visits) + 1;
-  }
-
-  localStorage.setItem("loveVisits", visits);
-
-  document.getElementById("visitCounter").innerHTML =
-    `You’ve visited this page <strong>${visits}</strong> time${visits > 1 ? "s" : ""} 💕`;
-</script>
-    // 🎂 COUNTDOWN TO 26 FEB
-    const birthday = new Date("February 26, 2026 00:00:00").getTime();
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = birthday - now;
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("countdown").innerHTML =
-        days > 0 ? `Only ${days} days until your birthday 🎉` : `It's your birthday today 🎂❤️`;
-    }, 1000);
-
-    // 💝 SURPRISE
-    function showSurprise() {
-      document.getElementById("surprise").style.display = "block";
+<!-- 📜 SCRIPTS -->
+<script>
+  // 🔐 PASSWORD
+  const correctPassword = "2623";
+  function checkPassword() {
+    if (passwordInput.value === correctPassword) {
+      lockScreen.style.display = "none";
+      mainContent.style.display = "block";
+    } else {
+      error.style.display = "block";
     }
-  </script>
-  <script>
-  function createBalloon() {
-    const balloon = document.createElement("div");
-    balloon.classList.add("balloon");
-
-    // Random position, color, size, speed
-    const colors = ["#ffb6c1", "#ffd1dc", "#c1e1c1", "#cce7ff", "#e6ccff"];
-    balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
-    balloon.style.left = Math.random() * 100 + "vw";
-    balloon.style.animationDuration = 6 + Math.random() * 6 + "s";
-    balloon.style.transform = `scale(${0.8 + Math.random() * 0.6})`;
-
-    document.body.appendChild(balloon);
-
-    // Remove balloon after animation
-    setTimeout(() => {
-      balloon.remove();
-    }, 12000);
   }
 
-  // Create balloons repeatedly
+  // 💗 VISIT COUNTER
+  let visits = localStorage.getItem("loveVisits");
+  visits = visits ? parseInt(visits) + 1 : 1;
+  localStorage.setItem("loveVisits", visits);
+  visitCounter.innerHTML = `You’ve visited this page <strong>${visits}</strong> time${visits > 1 ? "s" : ""} 💕`;
+
+  // 🎂 COUNTDOWN
+  const birthday = new Date("February 26, 2026").getTime();
+  setInterval(() => {
+    const diff = birthday - new Date().getTime();
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    countdown.innerHTML = days > 0 ? `Only ${days} days to go 🎉` : `It's your birthday 🎂`;
+  }, 1000);
+
+  // 💝 SURPRISE
+  function showSurprise() {
+    surprise.style.display = "block";
+  }
+
+  // 🎈 BALLOONS
+  function createBalloon() {
+    const b = document.createElement("div");
+    b.className = "balloon";
+    b.style.left = Math.random() * 100 + "vw";
+    b.style.animationDuration = 6 + Math.random() * 6 + "s";
+    document.body.appendChild(b);
+    setTimeout(() => b.remove(), 12000);
+  }
   setInterval(createBalloon, 800);
 </script>
-</div>
-  <script>
-  // 🔑 CHANGE YOUR PASSWORD HERE
-  const correctPassword = "2623";
 
-  function checkPassword() {
-    const input = document.getElementById("passwordInput").value;
-    if (input === correctPassword) {
-      document.getElementById("lockScreen").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-    } else {
-      document.getElementById("error").style.display = "block";
-    }
-  }
-</script>
 </body>
 </html>
