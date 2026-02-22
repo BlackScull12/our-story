@@ -9,6 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
 
   <style>
+    .left-links {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.left-links a {
+  display: block;
+  margin: 10px 0;
+  color: #b85c5c;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.left-links a:hover {
+  text-decoration: underline;
+}
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -113,7 +129,6 @@
 </head>
 
 <body>
-  <a href="letter.html">💌 A Letter Just for You</a>
 
 <!-- 🔐 PASSWORD SCREEN -->
 <div id="lockScreen" style="
@@ -139,14 +154,15 @@
     </p>
   </div>
 </div>
-  <a href="quiz.html">🎂 Birthday Quiz</a>
 
 <!-- 🌸 MAIN WEBSITE CONTENT -->
 <div id="mainContent" style="display:none;">
-
-<a href="timeline.html" style="display:inline-block;margin-top:30px;color:#b85c5c;font-weight:bold;">
-  See Our Timeline 💕
-</a>
+  
+  <div class="left-links">
+    <a href="timeline.html">See Our Timeline 💕</a>
+    <a href="letter.html">💌 A Letter Just for You</a>
+    <a href="quiz.html">🎂 Birthday Quiz</a>
+  </div>
 
   <div class="event left">
   <div class="date">  </div>
